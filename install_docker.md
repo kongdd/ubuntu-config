@@ -21,6 +21,6 @@ sudo add-apt-repository \
 sudo apt-get update 
 sudo apt-get install docker-ce
 
-docker pull shadowsocks/shadowsocks-libev
-sudo docker run -e PASSWORD=pawwsd -p444:8388 -p444:8388/udp -d shadowsocks/shadowsocks-libev
+# docker pull shadowsocks/shadowsocks-libev
+# sudo docker run -e PASSWORD=pawwsd -p444:8388 -p444:8388/udp -d shadowsocks/shadowsocks-libev
 ```
