@@ -1,28 +1,28 @@
-# shadowsocks
-
-https://github.com/shadowsocks/shadowsocks-libev
-
-
 ```bash
-# 1. Install shadowsocks
-sudo apt-get update \
-    && apt install -y --no-install-recommends \
-    software-properties-common rng-tools -y \
-    && add-apt-repository ppa:max-c-lv/shadowsocks-libev -y \
-    && apt-get update \
-    && apt-get install shadowsocks-libev
+# SET UP THE REPOSITORY
+# Update the apt package index:
+sudo apt-get update
 
-# 2. setup autorun
-sudo rm /etc/rc.local
-sudo sh -c 'echo "#!/bin/sh -e" >> /etc/rc.local' \
- && sudo sh -c 'echo "ss-server -s 0.0.0.0 -p 443 -k passwd -m chacha20 -u" >> /etc/rc.local' \
- && sudo sh -c 'echo "exit 0" >> /etc/rc.local'
+# Install packages to allow apt to use a repository over HTTPS:
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+# Add Docker’s official GPG key:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.
 
- # 3. elevate the access of rc.local
-sudo chown root:root /etc/rc.local \
-    && sudo chmod 755 /etc/rc.local \
-    && sudo systemctl enable rc-local.service
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update 
+sudo apt-get install docker-ce
 
+# docker pull shadowsocks/shadowsocks-libev
+# sudo docker run -e PASSWORD=pawwsd -p444:8388 -p444:8388/udp -d shadowsocks/shadowsocks-libev
 ```
 
 # 2. docker
