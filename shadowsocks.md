@@ -2,18 +2,6 @@
 
 https://github.com/shadowsocks/shadowsocks-libev
 
-
-```bash
-sudo su
-user=kong
-adduser $user
-usermod -aG sudo $user
-su - $user
-
-# https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/
-sudo hostnamectl set-hostname $user
-```
-
 ```bash
 # 1. Install shadowsocks
 sudo apt-get update \
@@ -33,6 +21,4 @@ sudo sh -c 'echo "#!/bin/sh -e" >> /etc/rc.local' \
 sudo chown root:root /etc/rc.local \
     && sudo chmod 755 /etc/rc.local \
     && sudo systemctl enable rc-local.service
-
-# sudo rm /var/lib/dpkg/lock-frontend /var/cache/apt/archives/lock
 ```

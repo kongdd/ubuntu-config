@@ -20,3 +20,30 @@ sudo apt-get install gdebi-core
 wget https://download2.rstudio.org/server/trusty/amd64/rstudio-server-1.2.1335-amd64.deb
 sudo gdebi rstudio-server-1.2.1335-amd64.deb
 ```
+
+## add a new user
+```bash
+sudo su
+user=kong
+adduser $user
+usermod -aG sudo $user
+su - $user
+sudo passwd
+
+# https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/
+sudo hostnamectl set-hostname $user
+```
+
+## 开机启动
+```bash
+# /etc/rc.local
+sudo rm /etc/rc.local
+sudo sh -c 'echo "#!/bin/sh -e" >> /etc/rc.local' \
+ && sudo sh -c 'echo " rstudio-server start" >> /etc/rc.local' \
+ && sudo sh -c 'echo "exit 0" >> /etc/rc.local'
+
+ # 3. elevate the access of rc.local
+sudo chown root:root /etc/rc.local \
+    && sudo chmod 755 /etc/rc.local \
+    && sudo systemctl enable rc-local.service
+```
