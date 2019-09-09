@@ -20,9 +20,17 @@ cat ~/.jupyter/jupyter_notebook_config.json
 
 ```python
 c.NotebookApp.ip='*'
-c.NotebookApp.password = u'sha1:038e5f37c449:5634b0618253b8088d553478b09296c112a79053'
+c.NotebookApp.password = u'sha1:6e0c743f1fe8:aeb98d4d13b85ea2bb094a80b84b5eb4ee20fb17'
 c.NotebookApp.open_browser = False
 c.NotebookApp.port =8888
+```
+
+```json
+{
+  "NotebookApp": {
+    "password": "sha1:6e0c743f1fe8:aeb98d4d13b85ea2bb094a80b84b5eb4ee20fb17"
+  }
+}
 ```
 
 fix ubuntu-desktop error
@@ -34,4 +42,39 @@ sudo apt-get purge acpid
 ```bash
 # update packages
 pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 pip install -U
+```
+
+```python
+# content
+pip install jupyter_nbextens_configurator
+pip install jupyter_contrib_nbextensions
+
+jupyter contrib nbextension install --sys-prefix
+jupyter nbextensions_configurator enable --user
+# jupyter contrib nbextension install --sys-prefix
+```
+
+## 修改镜像
+
+### conda
+```bash
+# ~\.condarc
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
+
+### pip
+```bash
+pip install pip -U
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```

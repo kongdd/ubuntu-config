@@ -37,3 +37,9 @@ git branch -m master old-master
 git branch -m check_curvefit master
 git push -f origin master
 ```
+
+# hub
+```BASH
+# https://hub.github.com/hub.1.html
+git config --global hub.protocol https
+```
