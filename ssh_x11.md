@@ -6,6 +6,8 @@ X11Forwarding yes
 X11DisplayOffset 10
 X11UseLocalhost yes
 
+PasswordAuthentication yes
+
 # service sshd restart
 sudo service ssh restart
 xauth list # check 

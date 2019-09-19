@@ -33,6 +33,14 @@ c.NotebookApp.port =8888
 }
 ```
 
+# 开机启动
+```bash
+su kongdd -c "jupyter notebook --config=/home/kongdd/.jupyter/jupyter_notebook_config.py --no-browser --notebook-dir=/home/kongdd/notebooks &"
+systemctl status rc-local.service
+systemctl stop rc-local.service
+systemctl start rc-local.service
+```
+
 fix ubuntu-desktop error
 ```bash
 sudo /etc/init.d/acpid stop
