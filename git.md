@@ -1,6 +1,8 @@
 ## git 基础设置
 
 ```bash
+# /usr/bin/ssh-keygen -A
+# sudo service ssh --full-restart
 ssh-keygen -C kongdd
 ssh -T git@github.com
 

@@ -62,6 +62,18 @@ jupyter nbextensions_configurator enable --user
 # jupyter contrib nbextension install --sys-prefix
 ```
 
+
+```bash
+pip install jupyter-c-kernel
+install_c_kernel --sys-prefix
+
+
+git clone https://github.com/f66blog/jupyter-ifort-kernel
+pip install .
+jupyter-kernelspec install ifort_spec
+```
+
+
 ## 修改镜像
 
 ### conda

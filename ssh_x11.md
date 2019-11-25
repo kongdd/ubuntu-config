@@ -10,6 +10,7 @@ PasswordAuthentication yes
 
 # service sshd restart
 sudo service ssh restart
+sudo service ssh --full-restart
 xauth list # check 
 
 # sudo xauth add localhost/unix:10 MIT-MAGIC-COOKIE-1 27e035688dd89483c6fe48b2470172f5

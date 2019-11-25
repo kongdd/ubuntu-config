@@ -12,7 +12,6 @@ deb https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/linux/ubuntu/ bionic-cran35/
 # deb https://mirrors.aliyun.com/CRAN/bin/linux/ubuntu bionic-cran35/
 sudo apt-get update
 sudo apt-get install r-base
-
 ```
 
 ## rstudio-server
