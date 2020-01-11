@@ -28,3 +28,21 @@ sudo chown root:root /etc/rc.local \
     && sudo systemctl enable rc-local.service
     && sudo systemctl start rc-local.service
 ```
+
+```bash
+# 可能是需要输入密码的原因，导致wsl rc.local无法运行
+sudo visudo
+
+#includedir /etc/sudoers.d
+%sudo ALL=NOPASSWD: /usr/sbin/sshd
+%sudo ALL=NOPASSWD: /usr/sbin/service
+%sudo ALL=NOPASSWD: /etc/rc.local
+```
+
+```vb
+' start_wsl.vbs
+set ws=wscript.createobject("wscript.shell")
+' ws.run "C:\Windows\System32\bash.exe -c 'sudo /etc/init.d/rstudio-server start'",0
+ws.run "C:\Windows\System32\bash.exe -c 'sudo service ssh start'",0
+' ws.run "C:\Windows\System32\bash.exe -c 'sudo /usr/sbin/sshd'",0
+```
