@@ -4,6 +4,7 @@
 # /usr/bin/ssh-keygen -A
 # sudo service ssh --full-restart
 ssh-keygen -C kongdd
+ssh-copy-id -i ~/.ssh/id_rsa.pub kong@remoteIP
 ssh -T git@github.com
 
 git config --global core.safecrlf false
