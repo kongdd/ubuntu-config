@@ -25,7 +25,7 @@ sudo sh -c 'echo "#!/bin/sh -e" >> /etc/rc.local' \
 # 3. elevate the access of rc.local
 sudo chown root:root /etc/rc.local \
     && sudo chmod 755 /etc/rc.local \
-    && sudo systemctl enable rc-local.service
+    && sudo systemctl enable rc-local.service \
     && sudo systemctl start rc-local.service
 ```
 
