@@ -13,3 +13,6 @@ curl -O https://raw.githubusercontent.com/atrandys/trojan/master/trojan_mult.sh 
 ```bash
 cd /usr/src && wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
+
+(1) 安装BBR-plus内核，2
+(2) 安装BBR-plus，7
