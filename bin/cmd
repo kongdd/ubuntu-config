@@ -1,0 +1,3 @@
+# !/bin/zsh
+
+/mnt/c/Windows/system32/cmd.exe /c $@
