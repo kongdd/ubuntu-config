@@ -12,6 +12,8 @@ git config --global core.autocrlf true
 
 git config --global user.name "Dongdong Kong"
 git config --global user.email "kongdd@users.noreply.github.com"
+## 记录用户名
+git config --global credential.helper store
 ```
 
 ----------
@@ -32,11 +34,6 @@ git config --global --unset https.proxy
 ```batch
 set http_proxy=http://127.0.0.1:1080
 set https_proxy=http://127.0.0.1:1080
-```
-
-## 记录用户名
-```
-git config --global credential.helper store
 ```
 
 # commits
