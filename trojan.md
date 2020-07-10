@@ -7,6 +7,9 @@ https://www.atrandys.com/2019/1963.html
 
 ```bash
 curl -O https://raw.githubusercontent.com/atrandys/trojan/master/trojan_mult.sh && chmod +x trojan_mult.sh && ./trojan_mult.sh
+
+vim /usr/src/trojan/server.conf
+# change password
 ```
 
 另外建议安装bbr，来源于网络分享，以下脚本安装，建议用原版bbr加速，不赘述了
