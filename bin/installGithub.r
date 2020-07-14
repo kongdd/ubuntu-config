@@ -9,4 +9,4 @@ local({
 
 args <- commandArgs(TRUE)
 # print(args)
-res <- try(devtools::install_git(args))
+res <- try(devtools::install_github(args))

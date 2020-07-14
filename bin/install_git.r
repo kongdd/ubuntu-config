@@ -9,4 +9,4 @@ local({
 
 args <- commandArgs(TRUE)
 # print(args)
-res <- try(devtools::install(args))
+res <- try(devtools::install(args, dependencies = FALSE))
