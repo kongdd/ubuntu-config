@@ -1,0 +1,77 @@
+Usage: R CMD INSTALL [options] pkgs
+
+Install the add-on packages specified by pkgs.  The elements of pkgs can
+be relative or absolute paths to directories with the package
+sources, or to gzipped package 'tar' archives.  The library tree
+to install to can be specified via '--library'.  By default, packages are
+installed in the library tree rooted at the first directory in
+.libPaths() for an R session run in the current environment.
+
+Options:
+  -h, --help		print short help message and exit
+  -v, --version		print INSTALL version info and exit
+  -c, --clean		remove files created during installation
+      --preclean	remove files created during a previous run
+  -d, --debug		turn on debugging messages
+			and build a debug DLL
+  -l, --library=LIB	install packages to library tree LIB
+      --no-configure    do not use the package's configure script
+      --no-docs		do not install HTML, LaTeX or examples help
+      --html		build HTML help
+      --no-html		do not build HTML help
+      --latex      	install LaTeX help
+      --example		install R code for help examples
+      --fake		do minimal install for testing purposes
+      --no-lock		install on top of any existing installation
+			without using a lock directory
+      --lock		use a per-library lock directory (default)
+      --pkglock		use a per-package lock directory
+      			(default for a single package)
+      --build    	build binaries of the installed package(s)
+      --install-tests	install package-specific tests (if any)
+      --no-R, --no-libs, --no-data, --no-help, --no-demo, --no-exec,
+      --no-inst
+			suppress installation of the specified part of the
+			package for testing or other special purposes
+      --no-multiarch	build only the main architecture
+      --libs-only	only install the libs directory
+      --data-compress=	none, gzip (default), bzip2 or xz compression
+			to be used for lazy-loading of data
+      --resave-data	re-save data files as compactly as possible
+      --compact-docs	re-compress PDF files under inst/doc
+      --with-keep.source
+      --without-keep.source
+			use (or not) 'keep.source' for R code
+      --with-keep.parse.data
+      --without-keep.parse.data
+			use (or not) 'keep.parse.data' for R code
+      --byte-compile	byte-compile R code
+      --no-byte-compile	do not byte-compile R code
+      --staged-install	install to a temporary directory and then move
+                   	to the target directory (default)
+      --no-staged-install	install directly to the target directory
+      --no-test-load	skip test of loading installed package
+      --no-clean-on-error	do not remove installed package on error
+      --merge-multiarch	multi-arch by merging (from a single tarball only)
+      --use-vanilla	do not read any Renviron or Rprofile files
+
+for Unix
+      --configure-args=ARGS
+			set arguments for the configure scripts (if any)
+      --configure-vars=VARS
+			set variables for the configure scripts (if any)
+      --strip           strip shared object(s)
+      --strip-lib       strip static/dynamic libraries under lib/
+      --dsym            (macOS only) generate dSYM directory
+      --built-timestamp=STAMP
+                   set timestamp for Built: entry in DESCRIPTION
+
+and on Windows only
+      --force-biarch	attempt to build both architectures
+			even if there is a non-empty configure.win
+      --compile-both	compile both architectures on 32-bit Windows
+
+Which of --html or --no-html is the default depends on the build of R:
+for this one it is --html.
+
+Report bugs at <https://bugs.R-project.org>.

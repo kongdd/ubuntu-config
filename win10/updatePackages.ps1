@@ -1,5 +1,5 @@
-# echo $args
-Rscript.exe --no-init-file $PSScriptRoot\updatePackages.r $args
+$root = "$PSScriptRoot\..\bin"
+Rscript.exe --vanilla $root\updatePackages.r $args
 
 # %* for all command line parameters (excluding the script name itself). You might also find these useful:
 

@@ -1,16 +1,19 @@
 #! /usr/bin/Rscript --no-init-file
 # --vanilla
 
+server = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
+server = "https://mirrors.aliyun.com/CRAN/"
 local({
     r <- getOption("repos")
-    r["CRAN"] <- "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
+    r["CRAN"] <- server
     options(repos = r)
 })
 # .libPaths("/mnt/e/WSL/r_library")
 
 args <- commandArgs(TRUE)
+# print(sessionInfo())
 # print(args)
-res <- try(install.packages(args))
+res <- try(install.packages(args, configure.args = "--use-vanilla", INSTALL_opts = c("--no-test-load")))
 # update.packages(ask = FALSE)
 # install.packages("xml2", dependencies = TRUE, INSTALL_opts = c("--no-lock"))
 
@@ -22,3 +25,4 @@ res <- try(install.packages(args))
 # sudo mkfontscale
 # sudo mkfontdir
 # sudo fc-cache -fv
+# magrittr
