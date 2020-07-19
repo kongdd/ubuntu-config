@@ -8,7 +8,9 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub kong@remoteIP
 ssh -T git@github.com
 
 git config --global core.safecrlf false
-git config --global core.autocrlf true
+git config --global core.autocrlf false
+## transform line ending for windows
+# git config --global core.autocrlf true
 
 git config --global user.name "Dongdong Kong"
 git config --global user.email "kongdd@users.noreply.github.com"
