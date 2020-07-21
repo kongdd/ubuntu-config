@@ -1,9 +1,84 @@
-#! /usr/bin/zsh
+#! /usr/bin/Rscript --no-init-file
+# tmux
+# ~/.gdrive_mover.R
 
+library(googledrive)
+library(foreach)
+library(iterators)
 
-while true
-do 
-    # echo "hello word"
-    gmover.R
-    sleep 10
-done
+root   = "/mnt/n/Documents"
+indirs = dir(root, "MODIS_", full.names = TRUE)
+outdir = "/mnt/n/MODIS/Terra_LAI"
+
+list_files <- function(dirs, pattern = "*.tif") {
+    foreach(indir = dirs, i = icount(), .combine = c) %do% {
+        dir(indir, pattern, full.names = TRUE)
+    }
+}
+
+get_Year <- function(files) {
+    stringr::str_extract(basename(files), "(?<=_)\\d{4}(?=_)")
+}
+
+check_dir <- function(path) {
+    foreach(path_i = unique(path)) %do% {
+        if (!dir.exists(path_i)) {
+            dir.create(path_i, recursive = TRUE)
+        }
+    }
+    path
+}
+
+empty_trash <- function() {
+    drive_empty_trash()
+    # get_used()
+    info = drive_about()$storageQuota
+    used = as.numeric(info$usage) / 1024^3
+    cat(sprintf("[info] used: %.2f Gb\n", used))    
+}
+
+fprintf <- function(...) cat(sprintf(...))
+
+i = 0
+mover <- function(indirs, outdir) {
+    time = format(Sys.time())
+    cat(sprintf("[%02d] %s\n", i, time))
+    
+    files_in = list_files(indirs)
+    if (length(files_in) > 0) {
+        year = get_Year(files_in)
+        files_out = paste0(outdir, "/", year, "/", basename(files_in))
+        check_dir(dirname(files_out))
+        # print(files_out)
+        status = file.rename(files_in, files_out)
+        fprintf("moved %d files, %d success, %d failed.", length(status), sum(status), sum(!status))
+
+        # foreach(infile = files_in, i = icount()) %do% {
+        #     tryCatch({
+        #         outfile = paste0(outdir, "/", basename(infile))
+        #         cmd     = sprintf('mv "%s" "%s"', infile, outfile)
+        #         status  = system(cmd, wait = FALSE)
+        #         # print(cmd)
+        #         # if (status == 0) {
+        #         #     file.rename(infile, outfile)
+        #         #     drive_rm(basename(infile))
+        #         # }
+        #     }, error = function(e) {
+        #         message(sprintf('%s', e))
+        #     })
+        # }
+        empty_trash()
+    }
+    if (i %% 10 == 0) empty_trash()
+    i <<- i + 1
+    invisible()
+}
+
+while(1) {
+    tryCatch({
+        mover(indirs, outdir)
+    }, error = function(e) {
+        message(sprintf('[e]: %s', e$message))
+    })
+    Sys.sleep(20)
+}

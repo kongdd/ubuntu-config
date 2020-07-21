@@ -8,7 +8,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub kong@remoteIP
 ssh -T git@github.com
 
 git config --global core.safecrlf false
-git config --global core.autocrlf false
+git config --global core.autocrlf true
 ## transform line ending for windows
 # git config --global core.autocrlf true
 

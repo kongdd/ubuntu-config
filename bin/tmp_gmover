@@ -1,0 +1,9 @@
+#! /usr/bin/zsh
+
+
+while true
+do 
+    # echo "hello word"
+    gmover.R
+    sleep 10
+done
