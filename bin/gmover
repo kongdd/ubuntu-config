@@ -1,14 +1,15 @@
 #! /usr/bin/Rscript --no-init-file
 # tmux
-# ~/.gdrive_mover.R
-
+# ./gmover.R
 library(googledrive)
 library(foreach)
 library(iterators)
+library(httr)
 
 root   = "/mnt/n/Documents"
 indirs = dir(root, "MODIS_", full.names = TRUE)
-outdir = "/mnt/n/MODIS/Terra_LAI"
+# indirs = "/mnt/n/MODIS/Terra_Emiss/NA"
+outdir = "/mnt/n/MODIS/Terra_Emiss"
 
 list_files <- function(dirs, pattern = "*.tif") {
     foreach(indir = dirs, i = icount(), .combine = c) %do% {
@@ -17,7 +18,7 @@ list_files <- function(dirs, pattern = "*.tif") {
 }
 
 get_Year <- function(files) {
-    stringr::str_extract(basename(files), "(?<=_)\\d{4}(?=_)")
+    stringr::str_extract(basename(files), "(?<=_)\\d{4}")
 }
 
 check_dir <- function(path) {
@@ -30,9 +31,12 @@ check_dir <- function(path) {
 }
 
 empty_trash <- function() {
-    drive_empty_trash()
+    info = httr::with_config(config = timeout(10), {
+        drive_empty_trash()
+        drive_about()$storageQuota
+    })
+    # drive_empty_trash()
     # get_used()
-    info = drive_about()$storageQuota
     used = as.numeric(info$usage) / 1024^3
     cat(sprintf("[info] used: %.2f Gb\n", used))    
 }
@@ -51,25 +55,10 @@ mover <- function(indirs, outdir) {
         check_dir(dirname(files_out))
         # print(files_out)
         status = file.rename(files_in, files_out)
-        fprintf("moved %d files, %d success, %d failed.", length(status), sum(status), sum(!status))
-
-        # foreach(infile = files_in, i = icount()) %do% {
-        #     tryCatch({
-        #         outfile = paste0(outdir, "/", basename(infile))
-        #         cmd     = sprintf('mv "%s" "%s"', infile, outfile)
-        #         status  = system(cmd, wait = FALSE)
-        #         # print(cmd)
-        #         # if (status == 0) {
-        #         #     file.rename(infile, outfile)
-        #         #     drive_rm(basename(infile))
-        #         # }
-        #     }, error = function(e) {
-        #         message(sprintf('%s', e))
-        #     })
-        # }
+        fprintf("moved %d files, %d success, %d failed.\n", length(status), sum(status), sum(!status))
         empty_trash()
     }
-    if (i %% 10 == 0) empty_trash()
+    if (i %% 5 == 0) empty_trash()
     i <<- i + 1
     invisible()
 }

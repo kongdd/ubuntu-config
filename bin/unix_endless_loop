@@ -4,6 +4,5 @@
 while true
 do 
     # echo "hello word"
-    gmover.R
-    sleep 10
+    gmover.R & sleep 20
 done
