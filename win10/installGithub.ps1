@@ -1,2 +1,2 @@
 $root = "$PSScriptRoot\..\bin"
-Rscript.exe --vanilla $root\installGithub.r $args
+Rscript.exe --no-init-file $root\installGithub.r $args

@@ -1,2 +1,3 @@
 $root = "$PSScriptRoot\..\bin"
-Rscript.exe --vanilla $root\document.r $args
+# --no-init-file --vanilla
+Rscript.exe --no-init-file $root\document.r $args

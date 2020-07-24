@@ -1,2 +1,2 @@
 $root = "$PSScriptRoot\..\bin"
-Rscript.exe --vanilla $root\install_git.r $args
+Rscript.exe --no-init-file $root\install_git.r $args
