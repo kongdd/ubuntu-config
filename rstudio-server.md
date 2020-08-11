@@ -6,6 +6,7 @@
 # source <(gpg-agent --daemon)
 
 gpg --keyserver keyserver.ubuntu.com --recv-key E298A3A825C0D65DFD57CBB651716619E084DAB9
+
 gpg -a --export E298A3A825C0D65DFD57CBB651716619E084DAB9 | sudo apt-key add -
 
 deb https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/linux/ubuntu/ bionic-cran35/
@@ -52,3 +53,7 @@ sudo chown root:root /etc/rc.local \
 ``` r
 tinytex::install_tinytex(repo='http://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet')
 ```
+
+# https://www.cnblogs.com/nxld/p/6098987.html
+Sys.setlocale("LC_ALL","Chinese")
+

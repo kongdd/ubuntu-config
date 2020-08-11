@@ -9,7 +9,7 @@ library(httr)
 root   = "/mnt/n/Documents"
 indirs = dir(root, "MODIS_", full.names = TRUE)
 # indirs = "/mnt/n/MODIS/Terra_Emiss/NA"
-outdir = "/mnt/n/MODIS/Terra_Emiss"
+outdir = "/mnt/n/MODIS/Terra_Albedo"
 
 list_files <- function(dirs, pattern = "*.tif") {
     foreach(indir = dirs, i = icount(), .combine = c) %do% {
