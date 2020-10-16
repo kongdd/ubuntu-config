@@ -1,3 +1,4 @@
-# !/bin/zsh
+# !/bin/bash
 
-cmd start $@
+root=$(dirname `which $0`)
+$root/cmd start $@

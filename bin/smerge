@@ -1,3 +1,4 @@
-# !/bin/zsh
+# !/bin/bash
 
-cmd smerge $@
+root=$(dirname `which $0`)
+$root/cmd smerge $@
