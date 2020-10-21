@@ -2,7 +2,7 @@
 # --vanilla
 
 server = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
-server = "https://mirrors.aliyun.com/CRAN/"
+# server = "https://mirrors.aliyun.com/CRAN/"
 local({
     r <- getOption("repos")
     r["CRAN"] <- server
