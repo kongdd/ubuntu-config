@@ -8,14 +8,13 @@ https://www.atrandys.com/2019/1963.html
 ```bash
 curl -O https://raw.githubusercontent.com/atrandys/trojan/master/trojan_mult.sh && chmod +x trojan_mult.sh && ./trojan_mult.sh
 
+# 2. change password
 vim /usr/src/trojan/server.conf
-# change password
-```
 
-另外建议安装bbr，来源于网络分享，以下脚本安装，建议用原版bbr加速，不赘述了
-```bash
+# 3. 另外建议安装bbr，来源于网络分享，以下脚本安装，建议用原版bbr加速，不赘述了
 cd /usr/src && wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+# 选择4，使用BBR加速
 ```
 
-(1) 安装BBR-plus内核，2
-(2) 安装BBR-plus，7
+<!-- (1) 安装BBR-plus内核，2
+(2) 安装BBR-plus，7 -->

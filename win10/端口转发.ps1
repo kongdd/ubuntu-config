@@ -3,18 +3,26 @@
 # 1. 通过中转机端口转发，访问ssh, rstudio-server服务
 # 2. 通过VPN实现服务器上网
 
-$PC_middle = 172.27.24.
-$PC_remote = 172.16.10.1
+# $PC_middle = 172.27.24.111
+# $PC_middle = "172.27.60.128"
+$PC_middle = "172.27.130.92"
+# $PC_middle = "localhost"
+$PC_remote = "172.16.10.1"
+
+# $port = 1080
+# New-NetFirewallRule -Protocol TCP -LocalPort $port -Direction Inbound -Action Allow -DisplayName ssr
+# netsh interface portproxy add v4tov4 listenaddress=$PC_middle listenport=$port connectaddress=$PC_remote connectport=22
 
 $port = 22
-New-NetFirewallRule -Protocol TCP -LocalPort $port -Direction Inbound -Action Allow -DisplayName sshd
+# New-NetFirewallRule -Protocol TCP -LocalPort $port -Direction Inbound -Action Allow -DisplayName sshd
 netsh interface portproxy add v4tov4 listenaddress=$PC_middle listenport=$port connectaddress=$PC_remote connectport=22
 
 $port = 8787
-New-NetFirewallRule -Protocol TCP -LocalPort $port -Direction Inbound -Action Allow -DisplayName rstudio-server
+# New-NetFirewallRule -Protocol TCP -LocalPort $port -Direction Inbound -Action Allow -DisplayName rstudio-server
 netsh interface portproxy add v4tov4 listenaddress=$PC_middle listenport=$port connectaddress=$PC_remote connectport=$port
 
-# netsh interface portproxy delete  v4tov4 listenaddress=$PC_middle listenport=8080
+netsh interface portproxy delete  v4tov4 listenaddress=172.27.24.111 listenport=8787
+netsh interface portproxy delete  v4tov4 listenaddress=172.27.24.111 listenport=22
 
 # disp
 netsh interface portproxy show all
