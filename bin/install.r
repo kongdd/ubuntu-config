@@ -13,7 +13,13 @@ local({
 args <- commandArgs(TRUE)
 # print(sessionInfo())
 # print(args)
-res <- try(install.packages(args, configure.args = "--use-vanilla", INSTALL_opts = c("--no-test-load")))
+
+library(wget)
+# destdir <- normalizePath("~/Downloads/r-pkgs/")
+destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
+if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
+
+res <- try(install.packages(args, destdir = destdir, configure.args = "--use-vanilla", INSTALL_opts = c("--no-test-load")))
 # update.packages(ask = FALSE)
 # install.packages("xml2", dependencies = TRUE, INSTALL_opts = c("--no-lock"))
 

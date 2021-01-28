@@ -11,4 +11,10 @@ local({
 
 args <- commandArgs(TRUE)
 # print(args)
-res <- try(devtools::install_github(args))
+
+library(wget)
+# destdir <- normalizePath("~/Downloads/r-pkgs/")
+destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
+if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
+
+res <- try(devtools::install_github(args, destdir = destdir))

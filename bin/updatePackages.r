@@ -7,5 +7,13 @@ local({
     r["CRAN"] <- server
     options(repos = r)
 })
+
+
 # .libPaths("/mnt/e/WSL/r_library")
-update.packages(ask = FALSE)
+
+library(wget)
+# destdir <- normalizePath("~/Downloads/r-pkgs/")
+destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
+if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
+
+update.packages(ask = FALSE, destdir = destdir)
