@@ -2,5 +2,6 @@
 
 # .libPaths("/mnt/e/WSL/r_library")
 args <- commandArgs(TRUE)
-# print(args)
+if (length(args) == 0) args = "."
+
 res <- try(devtools::document(args))
