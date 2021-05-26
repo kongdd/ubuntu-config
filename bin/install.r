@@ -12,6 +12,10 @@ local({
 args <- commandArgs(TRUE)
 if (length(args) == 0) args = "."
 
+# x = .libPaths() 
+# .libPaths(c("~/R/win-library/4.0", .libPaths()))
+# print(.libPaths())
+
 # library(wget)
 # destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
 # if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)

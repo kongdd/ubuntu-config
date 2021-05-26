@@ -1,10 +1,7 @@
 #! /usr/bin/Rscript --no-init-file
-
+library(magrittr)
 args <- commandArgs(TRUE)
+
 for (doi in args) {
-    tryCatch({
-        rscihub::scihub(doi)
-    }, error = function(e) {
-        message(sprintf('%s', e$message))
-    })
+    rscihub::scihub(doi)
 }
