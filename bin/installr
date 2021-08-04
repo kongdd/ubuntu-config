@@ -1,4 +1,5 @@
-#! /usr/bin/Rscript --no-init-file
+#! /usr/bin/Rscript 
+# --no-init-file
 # --vanilla
 
 server = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
@@ -18,7 +19,8 @@ library(wget)
 destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
 if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
 
-res <- try(install.packages(args, destdir = destdir, configure.args = "--use-vanilla", INSTALL_opts = c("--no-test-load")))
+# , configure.args = "--use-vanilla"
+res <- try(install.packages(args, destdir = destdir, INSTALL_opts = c("--no-test-load")))
 # # destdir <- normalizePath("~/Downloads/r-pkgs/")
 # update.packages(ask = FALSE)
 # install.packages("xml2", dependencies = TRUE, INSTALL_opts = c("--no-lock"))

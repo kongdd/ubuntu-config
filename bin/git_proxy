@@ -1,4 +1,4 @@
-# !/bin/zsh
+#! /bin/zsh
 
 remote='socks5://127.0.0.1:1081'
 git config --global http.proxy $remote

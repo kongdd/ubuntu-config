@@ -1,4 +1,5 @@
-#! /usr/bin/Rscript --no-init-file
+#! /usr/bin/Rscript 
+#--no-init-file
 
 server <- "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
 # server <- "https://mirrors.aliyun.com/CRAN/"
