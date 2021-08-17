@@ -1,0 +1,7 @@
+#! /usr/bin/Rscript --no-init-file
+# Dongdong Kong ----------------------------------------------------------------
+# Copyright (c) 2021 Dongdong Kong. All rights reserved.
+
+args = commandArgs(TRUE)
+b = raster::brick(args[1])
+print(names(b))

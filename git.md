@@ -21,6 +21,7 @@ git config --global user.name "Dongdong Kong"
 git config --global user.email "kongdd@users.noreply.github.com"
 ## 记录用户名
 git config --global credential.helper store
+# git config --global --unset credential.helper
 ```
 
 ----------

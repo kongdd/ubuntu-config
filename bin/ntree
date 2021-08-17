@@ -1,0 +1,4 @@
+#! /bin/bash
+
+FIGNORE='@(.|..)'
+for dir in */; do a=( "$dir"/**/* ); printf "%s\t%s\n" "$dir:" "${#a[*]}"; done

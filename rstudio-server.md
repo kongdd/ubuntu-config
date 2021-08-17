@@ -57,3 +57,18 @@ tinytex::install_tinytex(repo='http://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/
 # https://www.cnblogs.com/nxld/p/6098987.html
 Sys.setlocale("LC_ALL","Chinese")
 
+
+## pkgs
+
+```bash
+add-apt-repository ppa:c2d4u.team/c2d4u4.0+
+sudo apt install r-cran-tidyverse r-cran-data.table r-cran-raster r-cran-rgeom r-cran-cairo r-cran-spatstat
+```
+
+```r
+pkgs = dir("/usr/lib/R/site-library/")
+pkgs2 = dir("~/R/x86_64-pc-linux-gnu-library/4.0")
+pkgs_old = intersect(pkgs, pkgs2) %>% setdiff(c("foreach", "plyr"))
+# print(pkgs_old)
+temp = paste(pkgs_old, "") %>% cat()
+```

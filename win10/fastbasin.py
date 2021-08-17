@@ -16,6 +16,7 @@ def filldem(dem, outfile = "demfill.tif"):
 
 def cal_flowdir(dem = "demfill.tif", outfile = "flowdir.tif"):
     print("running flowdir ...")
+    print(dem)
     flowdir = arcpy.sa.FlowDirection(dem, "FORCE")
     flowdir.save(outfile)
 
@@ -28,6 +29,8 @@ def cal_watershed(flowdir, pour, outfile = "watershed"):
     outWatershed = arcpy.sa.Watershed(flowdir, pour)
     outWatershed.save(outfile)
 
+def stream_order(accu):
+    ""
 
 if __name__ == '__main__':
     # dem = "N:/ChinaWater/project/dem_guanshan.tif"
@@ -40,25 +43,24 @@ if __name__ == '__main__':
         # 	fastbasin demfill.tif flowdir
         # 	fastbasin flowdir.tif flowaccu
         infile = sys.argv[1]
-        print(infile)
-        arcpy.env.workspace = os.path.dirname(infile)
-        
+        arcpy.env.workspace = os.path.dirname(os.path.abspath(infile))
+                
         if (nargs > 2):
-        	begin = sys.argv[2] # fill, flowdir, flowaccu
+            begin = sys.argv[2] # fill, flowdir, flowaccu
 
-        	options = {"fill": 1, "flowdir": 2, "flowaccu": 3}
-        	Ibegin = options[begin]
+            options = {"fill": 1, "flowdir": 2, "flowaccu": 3}
+            Ibegin = options[begin]
 
-        	if Ibegin <= 1: 
-        		filldem(infile)
-        		cal_flowdir()
-	        	cal_flowaccu()	
-        	if Ibegin <= 2: 
-        		cal_flowdir(infile)
-	        	cal_flowaccu()
-        	if Ibegin <= 3: 
-        		cal_flowaccu(infile)
+            if Ibegin <= 1: 
+                filldem(infile)
+                cal_flowdir()
+                cal_flowaccu()	
+            if Ibegin <= 2: 
+                cal_flowdir(infile)
+                cal_flowaccu()
+            if Ibegin <= 3: 
+                cal_flowaccu(infile)
         else:
-        	filldem(dem)
-        	cal_flowdir()
-        	cal_flowaccu()
+            filldem(infile)
+            cal_flowdir()
+            cal_flowaccu()
