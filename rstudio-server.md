@@ -33,6 +33,9 @@ sudo passwd
 
 # https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/
 sudo hostnamectl set-hostname $user
+
+visudo # 添加管理员权限
+# username  ALL=(ALL) NOPASSWD:ALL
 ```
 
 ## 开机启动

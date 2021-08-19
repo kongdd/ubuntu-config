@@ -1,3 +1,9 @@
+---
+output: 
+  html_document: 
+    css: css_wechat.css
+---
+
 # CentOS-7 rstudio-server环境配置
 
 > centos7很多包不提供最新版，手动编译proj6和gdal3又异常困难，导致很多R包无法在服 务器上安装如(terra, ssh等)。但借助conda，可以自动安装已经编译好的proj, gdal, geos, ssh，具体教程如下：论conda的妙用。
@@ -26,7 +32,9 @@ rsession-which-r=/opt/R/4.1.0/lib/R/bin/R
 rsession-ld-library-path=/share/opt/.conda/envs/qgis/lib
 ```
 
-通过上面的设置，在rstudio-server中可以正常使用conda的动态链接库。但是通过terminal打开R语言时，加载包却会失败。 因此还需要进行3.2的设置。 \# 2.2 `R语言`启动环境设置
+通过上面的设置，在rstudio-server中可以正常使用conda的动态链接库。但是通过terminal打开R语言时，加载包却会失败。 因此还需要进行3.2的设置。
+
+## 2.2 `R语言`启动环境设置
 
 ``` {.bash}
 # sudo vim /opt/R/4.1.0/lib/R/etc/ldpath
