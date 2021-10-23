@@ -9,4 +9,3 @@
 * [git configuration](git.md)
 * [docker](docker.md)
 * [anaconda](anaconda.md)
-

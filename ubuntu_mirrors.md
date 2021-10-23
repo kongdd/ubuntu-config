@@ -4,7 +4,7 @@
 
 ```
 
-# 20.04
+# aliyun 20.04
 ```bash
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 # deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
