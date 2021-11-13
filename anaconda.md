@@ -62,7 +62,6 @@ jupyter nbextensions_configurator enable --user
 # jupyter contrib nbextension install --sys-prefix
 ```
 
-
 ```bash
 pip install jupyter-c-kernel
 install_c_kernel --sys-prefix
@@ -71,37 +70,4 @@ install_c_kernel --sys-prefix
 git clone https://github.com/f66blog/jupyter-ifort-kernel
 pip install .
 jupyter-kernelspec install ifort_spec
-```
-
-
-## 修改镜像
-
-### conda
-```bash
-# ~\.condarc
-channels:
-  - defaults
-show_channel_urls: true
-default_channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-custom_channels:
-  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-```
-
-### pip
-```bash
-pip install pip -U
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-
-```
-code ~/.pip/pip.conf
-[global]
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 ```
