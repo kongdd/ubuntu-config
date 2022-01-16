@@ -1,5 +1,5 @@
 
-## Ubuntu 18.04 system initial configuration
+## Ubuntu 20.04 system initial configuration
 
 * [rstudio-server](rstudio-server.md) 
 * [subl (sublime-text, sublime-merge)](subl.md)
@@ -9,3 +9,8 @@
 * [git configuration](git.md)
 * [docker](docker.md)
 * [anaconda](anaconda.md)
+
+* [conda](conda.md)
+* [powershell](powershell.md)
+* [git](1_Git.md)
+* [ssh](3_ssh.md)
