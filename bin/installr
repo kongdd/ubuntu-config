@@ -1,5 +1,4 @@
-#! /usr/bin/Rscript 
-# --no-init-file
+#! /usr/bin/env -S Rscript --no-init-file
 # --vanilla
 
 server = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"
@@ -15,9 +14,12 @@ args <- commandArgs(TRUE)
 # print(sessionInfo())
 # print(args)
 
-library(wget)
 destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
 if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
+
+if (!require(wget)) {
+    devtools::install_github("rpkgs/wget", destdir = destdir)
+}
 
 # , configure.args = "--use-vanilla"
 res <- try(install.packages(args, destdir = destdir, INSTALL_opts = c("--no-test-load")))

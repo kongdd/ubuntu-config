@@ -1,4 +1,5 @@
-#! /usr/bin/Rscript --no-init-file
+#! /usr/bin/env -S Rscript --no-init-file
+
 library(magrittr)
 args <- commandArgs(TRUE)
 

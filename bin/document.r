@@ -1,4 +1,4 @@
-#! /usr/bin/Rscript --no-init-file
+#! /usr/bin/env -S Rscript --no-init-file
 
 # .libPaths("/mnt/e/WSL/r_library")
 args <- commandArgs(TRUE)
