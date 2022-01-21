@@ -16,12 +16,14 @@ if (length(args) == 0) args = "."
 # .libPaths(c("~/R/win-library/4.0", .libPaths()))
 # print(.libPaths())
 
-destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
-if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
-
-if (!require(wget)) {
-    devtools::install_github("rpkgs/wget", destdir = destdir)
-}
 # destdir <- normalizePath("~/Downloads/r-pkgs/")
+# destdir <- paste0(dirname(.libPaths()[1]), "/r-pkgs")
+# if (!dir.exists(destdir)) dir.create(destdir, recursive = TRUE)
+
+# if (!require(wget)) {
+#     devtools::install_github("rpkgs/wget", destdir = destdir)
+# }
+
 # print(args)
+# pak::local_install(args, dependencies = FALSE)
 res <- try(devtools::install(args, dependencies = FALSE))

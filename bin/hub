@@ -1,5 +1,5 @@
 # !/bin/zsh
 
 git clone https://github.com/$@
-#git clone https://github.com.cnpmjs.org/$@
-#https://github.91chifun.workers.dev//https://github.com/kongdd/MODIStsp.git
+# git clone https://github.com.cnpmjs.org/$@
+# https://github.91chifun.workers.dev//https://github.com/kongdd/MODIStsp.git

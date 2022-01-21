@@ -1,4 +1,4 @@
-#! /usr/bin/Rscript --no-init-file
+#!/usr/bin/env -s Rscript --no-init-file
 library(magrittr)
 library(CMIP6tools)
 library(argparse)
