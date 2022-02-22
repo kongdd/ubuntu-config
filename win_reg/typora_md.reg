@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+; <https://stepneverstop.github.io/win-rightclick-create-md.html>
+; 添加"新建markdown"到右键新建
+
+[HKEY_CLASSES_ROOT\.md]
+@="Typora.exe"
+[HKEY_CLASSES_ROOT\.md\ShellNew]
+"NullFile"=""
+[HKEY_CLASSES_ROOT\Typora.exe]
+@="Markdown"
