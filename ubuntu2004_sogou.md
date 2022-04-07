@@ -6,7 +6,7 @@ sudo dpkg -i sogoupinyin_2.3.2.07_amd64-831.deb
 sudo apt --fix-broken install
 
 # xiufu zhongwen
-sudo apt-get install libQt5Qml.so
+sudo apt-get install libqt5qml5
 sudo apt-get install libgsettings-qt1
 ```
 https://zhuanlan.zhihu.com/p/455928877
