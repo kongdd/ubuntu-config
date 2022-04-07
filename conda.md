@@ -39,4 +39,3 @@ conda config --set channel_priority strict
 ```bash
 conda install -c conda-forge mamba
 ```
-

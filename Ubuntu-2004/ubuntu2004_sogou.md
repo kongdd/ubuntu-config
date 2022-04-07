@@ -5,9 +5,10 @@ wget http://cdn2.ime.sogou.com/dl/index/1599192613/sogoupinyin_2.3.2.07_amd64-83
 sudo dpkg -i sogoupinyin_2.3.2.07_amd64-831.deb
 sudo apt --fix-broken install
 
-# xiufu zhongwen
+# 中文输入框不显示
 sudo apt-get install libqt5qml5
 sudo apt-get install libgsettings-qt1
 ```
-https://zhuanlan.zhihu.com/p/455928877
-https://zhuanlan.zhihu.com/p/142206571
+
+<https://zhuanlan.zhihu.com/p/455928877>
+<https://zhuanlan.zhihu.com/p/142206571>
