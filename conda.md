@@ -19,6 +19,15 @@ custom_channels:
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 channel_priority: strict
+
+# # local_repodata_ttl (bool, int)
+# #   For a value of False or 0, always fetch remote repodata (HTTP 304
+# #   responses respected). For a value of True or 1, respect the HTTP
+# #   Cache-Control max-age header. Any other positive integer values is the
+# #   number of seconds to locally cache repodata before checking the remote
+# #   server for an update.
+# # 
+local_repodata_ttl: 3600
 ```
 
 ## pip
