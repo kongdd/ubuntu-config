@@ -10,3 +10,8 @@ sudo gdebi rstudio-2022.02.2-485-amd64.deb
 ## help rstudio find where is R
 ln -s /opt/miniconda3/envs/r-4.2/bin/R /usr/bin/R
 ```
+
+```bash
+# sudo subl /usr/lib/rstudio/bin/r-ldpath
+LD_LIBRARY_PATH="/opt/miniconda3/envs/r-4.2/lib:${LD_LIBRARY_PATH}"
+```
