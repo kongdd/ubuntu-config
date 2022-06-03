@@ -42,6 +42,19 @@ Host work
 ```
 
 ```powershell
+function ssh-copy-id([string]$userAtMachine){   
+    $publicKey = "$ENV:USERPROFILE" + "/.ssh/id_rsa.pub"
+    if (!(Test-Path "$publicKey")){
+        Write-Error "ERROR: failed to open ID file '$publicKey': No such file"            
+    }
+    else {
+        & cat "$publicKey" | ssh $userAtMachine "umask 077; test -d .ssh || mkdir .ssh ; cat >> .ssh/authorized_keys || exit 1"      
+    }
+}
+ssh work
+```
+
+```powershell
 # 添加 DISPLAY 到环境变量(用户变量即可)；
 # localhost不能省略；
 $env:DISPLAY="localhost:0.0"
