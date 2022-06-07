@@ -7,6 +7,7 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 # https://stackoverflow.com/questions/8264655/how-to-make-powershell-tab-completion-work-like-bash
+# code $profile
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 ```
