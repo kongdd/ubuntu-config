@@ -1,0 +1,2 @@
+# !/usr/bin/bash
+find . -type f | sed -e 's/[^\\/]*$//' | sort | uniq -c
