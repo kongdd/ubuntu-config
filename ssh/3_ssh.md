@@ -41,7 +41,12 @@ Host work
     Port 23
 ```
 
+
 ```powershell
+# 管理员模式
+net stop ssh
+net start ssh
+
 function ssh-copy-id([string]$userAtMachine){   
     $publicKey = "$ENV:USERPROFILE" + "/.ssh/id_rsa.pub"
     if (!(Test-Path "$publicKey")){
@@ -53,6 +58,13 @@ function ssh-copy-id([string]$userAtMachine){
 }
 ssh work
 ```
+
+## openssh server
+
+1. windows设置 -> 应用 -> 可选功能 -> openssh server
+
+> 手动设置的方法，<https://stackoverflow.com/questions/16212816/setting-up-openssh-for-windows-using-public-key-authentication>
+> 适用于windows连接windows
 
 ```powershell
 # 添加 DISPLAY 到环境变量(用户变量即可)；
