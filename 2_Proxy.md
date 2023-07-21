@@ -29,8 +29,8 @@ ssh -fCNL localhost:1081:localhost:1081 work
 
 ## git代理
 ```bash
-git config --global http.proxy http://127.0.0.1:1080
-git config --global https.proxy http://127.0.0.1:1080
+git config --global http.proxy http://127.0.0.1:1081
+git config --global https.proxy http://127.0.0.1:1081
 git config --global http.proxy 'socks5://127.0.0.1:1081'
 ```
 
