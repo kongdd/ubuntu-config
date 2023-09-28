@@ -47,15 +47,6 @@ Host work
 net stop ssh
 net start ssh
 
-function ssh-copy-id([string]$userAtMachine){   
-    $publicKey = "$ENV:USERPROFILE" + "/.ssh/id_rsa.pub"
-    if (!(Test-Path "$publicKey")){
-        Write-Error "ERROR: failed to open ID file '$publicKey': No such file"            
-    }
-    else {
-        & cat "$publicKey" | ssh $userAtMachine "umask 077; test -d .ssh || mkdir .ssh ; cat >> .ssh/authorized_keys || exit 1"      
-    }
-}
 ssh work
 ```
 
